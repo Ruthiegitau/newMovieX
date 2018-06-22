@@ -1,10 +1,11 @@
 package com.muturia.dennis.newmovie_x;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
+
+import com.muturia.dennis.newmovie_x.models.Movie;
+import com.muturia.dennis.newmovie_x.services.Services;
 
 import java.io.IOException;
 import java.util.ArrayList;

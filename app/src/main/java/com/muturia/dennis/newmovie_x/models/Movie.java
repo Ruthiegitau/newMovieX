@@ -1,4 +1,4 @@
-package com.muturia.dennis.newmovie_x;
+package com.muturia.dennis.newmovie_x.models;
 
 public class Movie {
     private String name;

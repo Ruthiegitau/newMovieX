@@ -1,9 +1,11 @@
-package com.muturia.dennis.newmovie_x;
+package com.muturia.dennis.newmovie_x.services;
 
 import android.util.Log;
 
+import com.muturia.dennis.newmovie_x.Constants;
+import com.muturia.dennis.newmovie_x.models.Movie;
+
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
