@@ -50,11 +50,12 @@ public class Services {
                  JSONObject jsonObject = jsonArray.getJSONObject(i);
                  String movieName = jsonObject.getString("movie_title");
                  String day = jsonObject.getString("days");
+                 String image = jsonObject.getString("movie_id") + Constants.imageEXT;
                  String status = jsonObject.getString("status");
-                 String price = jsonObject.getString("price");
+                 String price = jsonObject.getString("unit_price");
 
-                 //Storing the individual data in the the models of an Arraylist
-                 Movie movie = new Movie(movieName, day, status, price);
+                 //Storing the individual data in the the models of an ArrayList
+                 Movie movie = new Movie(movieName, day, status, price, image);
 
                  movies.add(movie);
              }

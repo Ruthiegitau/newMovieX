@@ -5,12 +5,14 @@ public class Movie {
     private String status;
     private String day;
     private String price;
+    private String image;
 
-    public Movie(String name, String status, String day, String price){
+    public Movie(String name, String status, String day, String price, String image){
         this.name = name;
         this.status = status;
         this.day = day;
         this.price = price;
+        this.image = image;
     }
     //Setting the getter for the data to be retrieved from the api
 
@@ -28,5 +30,9 @@ public class Movie {
 
     public String getPrice() {
         return price;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

@@ -1,9 +1,13 @@
 package com.muturia.dennis.newmovie_x;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
+import com.muturia.dennis.newmovie_x.Adapters.MovieAdapter;
 import com.muturia.dennis.newmovie_x.models.Movie;
 import com.muturia.dennis.newmovie_x.services.Services;
 
@@ -19,7 +23,10 @@ import okhttp3.Response;
 public class MainActivity extends Activity {
     public static final String TAG = MainActivity.class.getSimpleName();//Will be using this to log the data in the logcat
     ArrayList<Movie>theMovies = new ArrayList<>();//This is here for testing if I was getting the individual data
-    @BindView(R.id.hello)TextView apiData;
+    //@BindView(R.id.hello)TextView apiData;
+    private GridLayoutManager gridLayoutManager;
+    private MovieAdapter mAdapter;
+    @BindView(R.id.recyclerView)RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,11 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                           theMovies = services.processResults(response);//Testing purposes
+                            mAdapter = new MovieAdapter(getApplicationContext(), theMovies);
+                            mRecyclerView.setAdapter(mAdapter);
+                            gridLayoutManager = new GridLayoutManager(MainActivity.this, 2);
+                            mRecyclerView.setLayoutManager(gridLayoutManager);
+                            mRecyclerView.hasFixedSize();
                         }
                     });
                 }
