@@ -27,5 +27,9 @@ public class Services {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
+    /*
+    *Now I will start with fetching of individual data from the API
+    * But first we will need the models file
+    */
 
 }
