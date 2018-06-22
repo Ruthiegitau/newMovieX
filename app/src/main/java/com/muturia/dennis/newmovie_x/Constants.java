@@ -6,4 +6,5 @@ public class Constants {
     * Since there is no api key or api auth, we will just saave the url as it is.
      */
     public static final String urlApi = "http://movies.safiriticketing.com/api/movie_events";
+    public static final String imageEXT = ".JPG";
 }
