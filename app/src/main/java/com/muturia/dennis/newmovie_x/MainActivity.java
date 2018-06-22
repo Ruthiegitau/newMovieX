@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +17,7 @@ import okhttp3.Response;
 
 public class MainActivity extends Activity {
     public static final String TAG = MainActivity.class.getSimpleName();//Will be using this to log the data in the logcat
+    ArrayList<Movie>theMovies = new ArrayList<>();//This is here for testing if I was getting the individual data
     @BindView(R.id.hello)TextView apiData;
 
     @Override
@@ -37,14 +39,12 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, final Response response) throws IOException {
                 if (response.isSuccessful()){
-                    final String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
                     MainActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            apiData.setText(jsonData);
+                          theMovies = services.processResults(response);//Testing purposes
                         }
                     });
                 }
